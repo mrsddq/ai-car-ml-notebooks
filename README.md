@@ -31,3 +31,5 @@ docs/
 ## Status
 
 Learning archive with reproducibility docs. For polished ML project templates, use `ml-template`.
+
+Use [docs/REVIEW_PATH.md](docs/REVIEW_PATH.md) to rerun the notebooks and decide whether one experiment deserves extraction.
