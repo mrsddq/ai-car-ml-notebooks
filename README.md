@@ -1,4 +1,4 @@
-# AI Car
+# AI Car ML Notebooks
 
 Machine learning notebook archive for introductory AI car concepts, Python fundamentals, and applied ML experiments.
 
@@ -30,6 +30,6 @@ docs/
 
 ## Status
 
-Learning archive with reproducibility docs. For polished ML project templates, use `ml-template`.
+Learning archive with reproducibility docs. For polished ML project templates, use `python-ml-project-template`.
 
 Use [docs/REVIEW_PATH.md](docs/REVIEW_PATH.md) to rerun the notebooks and decide whether one experiment deserves extraction.
