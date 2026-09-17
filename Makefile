@@ -1,7 +1,4 @@
-﻿.PHONY: verify clean
+.PHONY: verify
 
 verify:
-	git status --short
-
-clean:
-	git status --short
+	python scripts/check_notebooks.py
