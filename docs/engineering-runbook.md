@@ -1,39 +1,37 @@
-﻿# Engineering Runbook
+# AI Car ML Notebooks: Engineering Runbook
 
-## Repository Profile
+This repository is a learning archive. See the [README](../README.md) for its
+structure and [review path](REVIEW_PATH.md) before selecting an experiment.
 
-- Repository: $repoName
-- Classification: Notebook project
-- Tracked files: 25
-- Python files: 0
-- JavaScript/TypeScript files: 0
-- Notebooks: 10
-- Terraform files: 0
+## Verify notebook structure
 
-## Setup
+Use an isolated Python 3.11 environment from the repository root:
 
-``bash
-No package install step is required for the tracked source.
-``
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install 'nbformat>=5.10,<6'
+python scripts/check_notebooks.py
+```
 
-## Verification
+On Windows PowerShell, activate the environment with
+`.venv\Scripts\Activate.ps1` instead of the `source` command.
 
-``bash
-Review tracked content and run repository-specific checks.
-git status --short
-``
+The checker validates notebook JSON and schemas, excludes historical checkpoint
+duplicates, and reports saved error outputs. It does not execute cells, download
+datasets, train models or establish prediction accuracy. Historical outputs are
+preserved; a schema pass does not mean every exercise runs successfully.
 
-## Release Hygiene
+## Reproduce an experiment
 
-- Keep generated outputs, caches, local datasets, virtual environments, and dependency folders out of git.
-- Prefer deterministic commands over manual notebook or console-only steps.
-- Document required secrets and environment variables instead of committing them.
-- Keep Dockerfiles, CI workflows, and tests aligned with the actual project stack.
-- Treat learning or reference material honestly as reference material; do not present it as production service code unless it has service-grade tests, deployment, and operations docs.
+Inspect the chosen notebook's imports, dataset paths and course instructions
+before installing its dependencies. There is no single verified execution
+environment for the whole archive. Run the selected notebook from top to bottom
+in a separate environment and record package versions, dataset provenance,
+random seeds, train/test split and fresh results in the
+[experiment log](experiment-log.md). Do not describe saved historical results as
+a new benchmark run.
 
-## Maintenance Checklist
-
-- Review dependencies quarterly.
-- Run tests before every push.
-- Confirm git status --short is clean before packaging.
-- Include .git only when an external submission explicitly requires repository history.
+Preserve course attribution and lesson context. Review `git diff --check` and
+`git status --short` before committing, and exclude credentials, environments,
+caches and newly downloaded datasets from commits.
