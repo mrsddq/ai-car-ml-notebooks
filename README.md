@@ -33,3 +33,17 @@ docs/
 Learning archive with reproducibility docs. For polished ML project templates, use `python-ml-project-template`.
 
 Use [docs/REVIEW_PATH.md](docs/REVIEW_PATH.md) to rerun the notebooks and decide whether one experiment deserves extraction.
+## Lightweight verification
+
+From the repository root, use an isolated Python 3.11 environment:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install 'nbformat>=5.10,<6'
+python scripts/check_notebooks.py
+```
+
+CI checks that notebook JSON and notebook schemas are readable; it does not execute cells, train models, download datasets, or establish model accuracy. Historical checkpoint duplicates are excluded. Saved error outputs are reported rather than silently erased: some exercises intentionally demonstrate errors, and others still need repair. Existing outputs are historical, not fresh experiment results.
+
+To run an experiment, inspect its imports, dataset paths, and course instructions first; then use a separate environment and record package versions, random seeds, train/test split, and fresh results. There is no single verified environment for every notebook in this archive.
